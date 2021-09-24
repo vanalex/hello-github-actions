@@ -1,6 +1,17 @@
 name: A workflow for my Hello World file
 on: push
 
+  workflow_dispatch:
+      inputs:
+        name:
+          description: 'Person to greet'
+          required: true
+          default: 'welcome'
+        home:
+          description: 'location'
+          required: false
+          default: 'vanalex'
+
 jobs:
 
   say_hello:
@@ -8,6 +19,8 @@ jobs:
     steps:
       - run: |
           echo "Hello!"
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
 
   build:
     name: Hello world action
