@@ -10,7 +10,8 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+      - uses: actions/checkout@v2
       - name: Run script file
-      run: |
-         chmod +x echo.sh
-      shell: bash     
+        run: |
+            chmod +x echo.shs
+      shell: bash
